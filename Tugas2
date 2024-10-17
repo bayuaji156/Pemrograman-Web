@@ -118,7 +118,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Daftar Tugas Saya</h1>
+        <h1>ISI BEBAS</h1>
         <div class="input-group">
             <input type="text" id="taskInput" placeholder="Tambahkan tugas baru...">
             <button id="addBtn">Tambah</button>
