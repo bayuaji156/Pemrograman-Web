@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(90deg, #74ebd5, #162b87);
+        }
+
+        .calculator {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #display {
+            width: 100%;
+            height: 50px;
+            font-size: 2em;
+            text-align: right;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 20px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #888;
+            color: #fff;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button class="btn" onclick="clearDisplay()">AC</button>
+            <button class="btn" onclick="input('%')">%</button>
+            <button class="btn" onclick="input('**')">^</button>
+            <button class="btn" onclick="input('/')">÷</button>
+            <button class="btn" onclick="input(7)">7</button>
+            <button class="btn" onclick="input(8)">8</button>
+            <button class="btn" onclick="input(9)">9</button>
+            <button class="btn" onclick="input('*')">×</button>
+            <button class="btn" onclick="input(4)">4</button>
+            <button class="btn" onclick="input(5)">5</button>
+            <button class="btn" onclick="input(6)">6</button>
+            <button class="btn" onclick="input('-')">-</button>
+            <button class="btn" onclick="input(1)">1</button>
+            <button class="btn" onclick="input(2)">2</button>
+            <button class="btn" onclick="input(3)">3</button>
+            <button class="btn" onclick="input('+')">+</button>
+            <button class="btn" onclick="input(0)">0</button>
+            <button class="btn" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        // Display the input in the calculator
+        function input(value) {
+            document.getElementById("display").value += value;
+        }
+
+        // Clear the display
+        function clearDisplay() {
+            document.getElementById("display").value = '';
+        }
+
+        // Calculate the result
+        function calculate() {
+            try {
+                let result = eval(document.getElementById("display").value);
+                document.getElementById("display").value = result;
+            } catch (e) {
+                document.getElementById("display").value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
