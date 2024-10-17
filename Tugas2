@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi To-Do List</title>
+    <style>
+        /* Umum */
+        body {
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        /* Judul */
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Grup Input */
+        .input-group {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .input-group button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #74ebd5;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-group button:hover {
+            background-color: #57bfb6;
+        }
+
+        /* Daftar Tugas */
+        #taskList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #taskList li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        #taskList li span {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        #taskList li button {
+            margin-left: 5px;
+        }
+
+        .editBtn {
+            background-color: #ffa500;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .editBtn:hover {
+            background-color: #ff8c00;
+        }
+
+        .deleteBtn {
+            background-color: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .deleteBtn:hover {
+            background-color: #ff4c4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar Tugas Saya</h1>
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Tambahkan tugas baru...">
+            <button id="addBtn">Tambah</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addBtn = document.getElementById('addBtn');
+        const taskList = document.getElementById('taskList');
+
+        // Fungsi untuk menambahkan tugas baru
+        function addTask() {
+            if (taskInput.value.trim() === '') return;
+
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${taskInput.value}</span>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Hapus</button>
+            `;
+            taskList.appendChild(li);
+            taskInput.value = '';
+
+            // Tombol Edit
+            const editBtn = li.querySelector('.editBtn');
+            const deleteBtn = li.querySelector('.deleteBtn');
+            const span = li.querySelector('span');
+
+            editBtn.addEventListener('click', () => {
+                if (editBtn.textContent === 'Edit') {
+                    span.contentEditable = "true";
+                    span.focus();
+                    editBtn.textContent = 'Simpan';
+                } else {
+                    span.contentEditable = "false";
+                    editBtn.textContent = 'Edit';
+                }
+            });
+
+            // Hapus tugas
+            deleteBtn.addEventListener('click', () => {
+                li.remove();
+            });
+        }
+
+        // Tambahkan tugas ketika tombol diklik
+        addBtn.addEventListener('click', addTask);
+
+        // Tambahkan tugas ketika tombol 'Enter' ditekan
+        taskInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>
