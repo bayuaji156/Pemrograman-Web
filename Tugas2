@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi To-Do List</title>
+    <title>To-Do List</title>
     <style>
-        /* Umum */
+        
         body {
             background: linear-gradient(to right, #74ebd5, #acb6e5);
             font-family: Arial, sans-serif;
@@ -83,10 +83,6 @@
             margin-right: 10px;
         }
 
-        #taskList li button {
-            margin-left: 5px;
-        }
-
         .editBtn {
             background-color: #ffa500;
             border: none;
@@ -109,6 +105,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-left: 8px;
         }
 
         .deleteBtn:hover {
@@ -118,7 +115,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>ISI BEBAS</h1>
+        <h1>Isi Apa Kek</h1>
         <div class="input-group">
             <input type="text" id="taskInput" placeholder="Tambahkan tugas baru...">
             <button id="addBtn">Tambah</button>
@@ -133,7 +130,10 @@
 
         // Fungsi untuk menambahkan tugas baru
         function addTask() {
-            if (taskInput.value.trim() === '') return;
+            if (taskInput.value.trim() === '') {
+                alert('Isi Dulu Bang');
+                return; // Hentikan fungsi jika input kosong
+            }
 
             const li = document.createElement('li');
             li.innerHTML = `
@@ -172,7 +172,11 @@
         // Tambahkan tugas ketika tombol 'Enter' ditekan
         taskInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                addTask();
+                if (taskInput.value.trim() === '') {
+                    alert('Silakan isi tugas sebelum menambahkan.');
+                } else {
+                    addTask();
+                }
             }
         });
     </script>
