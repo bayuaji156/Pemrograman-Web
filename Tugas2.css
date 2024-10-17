@@ -1,0 +1,105 @@
+ body {
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            font-family: forte;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        /* Judul */
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Grup Input */
+        .input-group {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .input-group button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #74ebd5;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-group button:hover {
+            background-color: #57bfb6;
+        }
+
+        /* Daftar Tugas */
+        #taskList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #taskList li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        #taskList li span {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .editBtn {
+            background-color: #ffa500;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .editBtn:hover {
+            background-color: #ff8c00;
+        }
+
+        .deleteBtn {
+            background-color: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 8px;
+        }
+
+        .deleteBtn:hover {
+            background-color: #ff4c4c;
+        }
