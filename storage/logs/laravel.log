@@ -1,0 +1,9 @@
+[2024-12-05 15:36:32] local.ERROR: There are no commands defined in the "install" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"install\" namespace. at C:\\laragon\\www\\CodelabModul5\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\laragon\\www\\CodelabModul5\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('install')
+#1 C:\\laragon\\www\\CodelabModul5\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find('install:api')
+#2 C:\\laragon\\www\\CodelabModul5\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\laragon\\www\\CodelabModul5\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\laragon\\www\\CodelabModul5\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
